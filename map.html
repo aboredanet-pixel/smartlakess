@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Digital Lakes | Map</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+</head>
+<body>
+
+  <!-- ======== NAVBAR ======== -->
+  <nav class="navbar">
+    <div class="logo">Digital Lakes</div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="simulation.html">Simulation</a></li>
+      <li><a href="map.html" class="active">Map</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <button class="lang-btn" id="langBtn">AR</button>
+  </nav>
+
+  <!-- ======== MAP SECTION ======== -->
+  <section class="simulation">
+    <div class="sim-container fade-in">
+      <h1>Egyptian Lakes Map</h1>
+      <p>Interactive map showing digital monitoring sensors for Egyptian lakes.</p>
+
+      <div id="map" style="height: 500px; width: 100%; border-radius: 20px; overflow: hidden; box-shadow: 0 0 20px rgba(0,0,0,0.3);"></div>
+    </div>
+  </section>
+
+  <!-- ======== FOOTER ======== -->
+  <footer>
+    <p>© 2025 Digital Lakes | Designed for Egypt’s Digital Transformation</p>
+  </footer>
+
+  <!-- ======== SCRIPT ======== -->
+  <script>
+    // Initialize map
+    const map = L.map('map').setView([30.5, 31.0], 6);
+
+    // Tile layer
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 12,
+      attribution: '© OpenStreetMap'
+    }).addTo(map);
+
+    // Lake data
+    const lakes = [
+      { name: "Lake Manzala", coords: [31.3, 32.2], quality: "87%", temp: "24°C" },
+      { name: "Lake Burullus", coords: [31.5, 30.8], quality: "79%", temp: "23°C" },
+      { name: "Lake Bardawil", coords: [31.2, 33.2], quality: "92%", temp: "22°C" },
+      { name: "Lake Qarun", coords: [29.4, 30.6], quality: "68%", temp: "26°C" },
+      { name: "Lake Edku", coords: [31.3, 30.2], quality: "81%", temp: "25°C" }
+    ];
+
+    // Add markers
+    lakes.forEach(lake => {
+      L.marker(lake.coords)
+        .addTo(map)
+        .bindPopup(
+          `<b>${lake.name}</b><br>
+          Water Quality: ${lake.quality}<br>
+          Temperature: ${lake.temp}`
+        );
+    });
+
+    // Fade-in effect
+    window.addEventListener("load", () => {
+      document.querySelector(".fade-in").classList.add("appear");
+    });
+
+    // Language toggle
+    const langBtn = document.getElementById("langBtn");
+    let isEnglish = true;
+    langBtn.onclick = () => {
+      isEnglish = !isEnglish;
+      if (isEnglish) {
+        langBtn.textContent = "AR";
+        document.querySelector("h1").textContent = "Egyptian Lakes Map";
+        document.querySelector("p").textContent = "Interactive map showing digital monitoring sensors for Egyptian lakes.";
+      } else {
+        langBtn.textContent = "EN";
+        document.querySelector("h1").textContent = "خريطة البحيرات المصرية";
+        document.querySelector("p").textContent = "خريطة تفاعلية توضح أجهزة المراقبة الرقمية في البحيرات المصرية.";
+      }
+    };
+  </script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Digital Lakes | Home</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ======== NAVBAR ======== -->
+  <nav class="navbar">
+    <div class="logo">Digital Lakes</div>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="simulation.html">Simulation</a></li>
+      <li><a href="map.html">Map</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <button class="lang-btn" id="langBtn">AR</button>
+  </nav>
+
+  <!-- ======== HERO SECTION ======== -->
+  <section class="hero fade-in">
+    <div class="hero-content">
+      <h1>Welcome to Digital Lakes</h1>
+      <p>
+        A smart digital system designed to monitor and analyze Egypt's lakes in real time,  
+        supporting sustainability and digital transformation for a greener future.
+      </p>
+      <a href="simulation.html" class="hero-btn">Explore Simulation</a>
+    </div>
+  </section>
+
+  <!-- ======== ABOUT PREVIEW ======== -->
+  <section class="about-preview fade-in">
+    <div class="about-text">
+      <h2>Why Digital Lakes?</h2>
+      <p>
+        Egypt's lakes are vital to the environment and economy.  
+        Through the Digital Lakes project, we aim to improve monitoring, reduce pollution,  
+        and protect aquatic life using cutting-edge digital technology.
+      </p>
+    </div>
+  </section>
+
+  <!-- ======== FOOTER ======== -->
+  <footer>
+    <p>© 2025 Digital Lakes | Designed for Egypt’s Digital Transformation</p>
+  </footer>
+
+  <!-- ======== SCRIPT ======== -->
+  <script>
+    // Fade-in animation
+    window.addEventListener("load", () => {
+      document.querySelectorAll(".fade-in").forEach((el) => el.classList.add("appear"));
+    });
+
+    // Language toggle
+    const langBtn = document.getElementById("langBtn");
+    let isEnglish = true;
+    langBtn.onclick = () => {
+      isEnglish = !isEnglish;
+      if (isEnglish) {
+        langBtn.textContent = "AR";
+        document.querySelector("h1").textContent = "Welcome to Digital Lakes";
+        document.querySelector("p").textContent =
+          "A smart digital system designed to monitor and analyze Egypt's lakes in real time, supporting sustainability and digital transformation for a greener future.";
+        document.querySelector(".hero-btn").textContent = "Explore Simulation";
+        document.querySelector("h2").textContent = "Why Digital Lakes?";
+        document.querySelectorAll("p")[1].textContent =
+          "Egypt's lakes are vital to the environment and economy. Through the Digital Lakes project, we aim to improve monitoring, reduce pollution, and protect aquatic life using cutting-edge digital technology.";
+      } else {
+        langBtn.textContent = "EN";
+        document.querySelector("h1").textContent = "مرحبًا بكم في مشروع البحيرات الرقمية";
+        document.querySelector("p").textContent =
+          "نظام رقمي ذكي لمراقبة وتحليل البحيرات المصرية في الوقت الفعلي، لدعم الاستدامة والتحول الرقمي نحو مستقبل أكثر خضرة.";
+        document.querySelector(".hero-btn").textContent = "ابدأ المحاكاة";
+        document.querySelector("h2").textContent = "لماذا مشروع البحيرات الرقمية؟";
+        document.querySelectorAll("p")[1].textContent =
+          "تُعد البحيرات المصرية مصدرًا هامًا للبيئة والاقتصاد، ومن خلال هذا المشروع نهدف إلى تحسين المراقبة وتقليل التلوث وحماية الحياة المائية باستخدام أحدث التقنيات الرقمية.";
+      }
+    };
+  </script>
+
+</body>
+</html>

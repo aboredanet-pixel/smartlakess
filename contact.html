@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact | Digital Lakes</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ======== NAVBAR ======== -->
+  <nav class="navbar">
+    <div class="logo">Digital Lakes</div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="simulation.html">Simulation</a></li>
+      <li><a href="map.html">Map</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
+    </ul>
+    <button class="lang-btn" id="langBtn">AR</button>
+  </nav>
+
+  <!-- ======== CONTACT SECTION ======== -->
+  <section class="about-preview fade-in">
+    <div class="about-text">
+      <h2>Contact Us</h2>
+      <p>
+        Have questions or want to know more about the Digital Lakes project?  
+        Send us a message, and our team will get back to you as soon as possible.
+      </p>
+
+      <form id="contactForm" style="margin-top: 30px; max-width: 500px; margin-left: auto; margin-right: auto; text-align: left;">
+        <label for="name">Name</label><br>
+        <input type="text" id="name" name="name" required style="width:100%; padding:10px; border-radius:10px; border:none; margin-bottom:15px; background-color:#072E33; color:#EAF6F6;"><br>
+
+        <label for="email">Email</label><br>
+        <input type="email" id="email" name="email" required style="width:100%; padding:10px; border-radius:10px; border:none; margin-bottom:15px; background-color:#072E33; color:#EAF6F6;"><br>
+
+        <label for="message">Message</label><br>
+        <textarea id="message" name="message" rows="5" required style="width:100%; padding:10px; border-radius:10px; border:none; background-color:#072E33; color:#EAF6F6;"></textarea><br>
+
+        <button type="submit" class="lang-btn" style="width:100%; margin-top:10px;">Send</button>
+      </form>
+
+      <br><br>
+      <p>
+        📍 Cairo, Egypt <br>
+        📧 contact@digitallakes.eg <br>
+        ☎️ +20 100 555 1234
+      </p>
+    </div>
+  </section>
+
+  <!-- ======== FOOTER ======== -->
+  <footer>
+    <p>© 2025 Digital Lakes | Designed for Egypt’s Digital Transformation</p>
+  </footer>
+
+  <!-- ======== SCRIPT ======== -->
+  <script>
+    // Fade-in animation
+    window.addEventListener("load", () => {
+      document.querySelector(".fade-in").classList.add("appear");
+    });
+
+    // Form submission (just simulation)
+    document.getElementById("contactForm").addEventListener("submit", (e) => {
+      e.preventDefault();
+      alert("Your message has been sent successfully! ✅");
+      e.target.reset();
+    });
+
+    // Language toggle
+    const langBtn = document.getElementById("langBtn");
+    let isEnglish = true;
+    langBtn.onclick = () => {
+      isEnglish = !isEnglish;
+      if (isEnglish) {
+        langBtn.textContent = "AR";
+        document.querySelector("h2").textContent = "Contact Us";
+        document.querySelectorAll("p")[0].textContent =
+          "Have questions or want to know more about the Digital Lakes project? Send us a message, and our team will get back to you as soon as possible.";
+        document.querySelectorAll("p")[1].innerHTML =
+          "📍 Cairo, Egypt <br> 📧 contact@digitallakes.eg <br> ☎️ +20 100 555 1234";
+        document.querySelector("button[type='submit']").textContent = "Send";
+      } else {
+        langBtn.textContent = "EN";
+        document.querySelector("h2").textContent = "تواصل معنا";
+        document.querySelectorAll("p")[0].textContent =
+          "هل لديك أسئلة أو ترغب في معرفة المزيد عن مشروع البحيرات الرقمية؟ أرسل لنا رسالة وسنقوم بالرد عليك في أقرب وقت ممكن.";
+        document.querySelectorAll("p")[1].innerHTML =
+          "📍 القاهرة، مصر <br> 📧 contact@digitallakes.eg <br> ☎️ +20 100 555 1234";
+        document.querySelector("button[type='submit']").textContent = "إرسال";
+      }
+    };
+  </script>
+
+</body>
+</html>

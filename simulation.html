@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Simulation | Digital Lakes</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ======== NAVBAR ======== -->
+  <nav class="navbar">
+    <div class="logo">Digital Lakes</div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="simulation.html" class="active">Simulation</a></li>
+      <li><a href="map.html">Map</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <button class="lang-btn" id="langBtn">AR</button>
+  </nav>
+
+  <!-- ======== SIMULATION SECTION ======== -->
+  <section class="simulation fade-in">
+    <div class="sim-container">
+      <h1 id="simTitle">Real-Time Lake Monitoring</h1>
+      <p id="simDesc">Live data simulation for Egyptian lakes' digital sensors.</p>
+
+      <div class="sensor-grid">
+        <div class="sensor-card" id="tempCard">
+          <h2 id="tempLabel">Water Temperature</h2>
+          <div class="sensor-value" id="tempValue">25°C</div>
+        </div>
+
+        <div class="sensor-card" id="phCard">
+          <h2 id="phLabel">pH Level</h2>
+          <div class="sensor-value" id="phValue">7.4</div>
+        </div>
+
+        <div class="sensor-card" id="oxygenCard">
+          <h2 id="oxygenLabel">Oxygen Level</h2>
+          <div class="sensor-value" id="oxygenValue">85%</div>
+        </div>
+
+        <div class="sensor-card" id="pollutionCard">
+          <h2 id="pollutionLabel">Pollution Index</h2>
+          <div class="sensor-value" id="pollutionValue">12%</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== FOOTER ======== -->
+  <footer>
+    <p>© 2025 Digital Lakes | Designed for Egypt’s Digital Transformation</p>
+  </footer>
+
+  <!-- ======== SCRIPT ======== -->
+  <script>
+    // Fade-in animation
+    window.addEventListener("load", () => {
+      document.querySelector(".fade-in").classList.add("appear");
+    });
+
+    // Random data simulation
+    function updateSensors() {
+      document.getElementById("tempValue").textContent = (22 + Math.random() * 5).toFixed(1) + "°C";
+      document.getElementById("phValue").textContent = (6.8 + Math.random() * 0.6).toFixed(2);
+      document.getElementById("oxygenValue").textContent = (80 + Math.random() * 10).toFixed(1) + "%";
+      document.getElementById("pollutionValue").textContent = (10 + Math.random() * 5).toFixed(1) + "%";
+    }
+
+    setInterval(updateSensors, 2000); // تحديث كل ثانيتين
+
+    // Language toggle
+    const langBtn = document.getElementById("langBtn");
+    let isEnglish = true;
+
+    langBtn.onclick = () => {
+      isEnglish = !isEnglish;
+      if (isEnglish) {
+        langBtn.textContent = "AR";
+        document.getElementById("simTitle").textContent = "Real-Time Lake Monitoring";
+        document.getElementById("simDesc").textContent = "Live data simulation for Egyptian lakes' digital sensors.";
+        document.getElementById("tempLabel").textContent = "Water Temperature";
+        document.getElementById("phLabel").textContent = "pH Level";
+        document.getElementById("oxygenLabel").textContent = "Oxygen Level";
+        document.getElementById("pollutionLabel").textContent = "Pollution Index";
+      } else {
+        langBtn.textContent = "EN";
+        document.getElementById("simTitle").textContent = "مراقبة البحيرات في الوقت الحقيقي";
+        document.getElementById("simDesc").textContent = "محاكاة بيانات مباشرة لأجهزة الاستشعار الرقمية في البحيرات المصرية.";
+        document.getElementById("tempLabel").textContent = "درجة حرارة المياه";
+        document.getElementById("phLabel").textContent = "مستوى الحموضة (pH)";
+        document.getElementById("oxygenLabel").textContent = "نسبة الأكسجين";
+        document.getElementById("pollutionLabel").textContent = "مؤشر التلوث";
+      }
+    };
+  </script>
+</body>
+</html>

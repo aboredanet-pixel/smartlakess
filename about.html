@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About | Digital Lakes</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ======== NAVBAR ======== -->
+  <nav class="navbar">
+    <div class="logo">Digital Lakes</div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="simulation.html">Simulation</a></li>
+      <li><a href="map.html">Map</a></li>
+      <li><a href="about.html" class="active">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <button class="lang-btn" id="langBtn">AR</button>
+  </nav>
+
+  <!-- ======== ABOUT SECTION ======== -->
+  <section class="about-preview fade-in">
+    <div class="about-text">
+      <h2>About Digital Lakes</h2>
+      <p>
+        The Digital Lakes project is part of Egypt's digital transformation strategy.  
+        It aims to monitor Egyptian lakes using smart sensors that collect environmental data such as water quality, temperature, and pollution levels in real time.  
+        This helps improve decision-making, protect marine life, and ensure sustainable water management.
+      </p>
+
+      <br><br>
+
+      <p>
+        By combining technology and sustainability, Digital Lakes represents a step toward a smarter, greener Egypt.  
+        The collected data will support scientists and decision-makers to keep our natural resources healthy for future generations.
+      </p>
+
+      <br><br>
+
+      <img src="images/lake-monitor.jpg" alt="Digital monitoring" style="width:80%; border-radius:20px; margin-top:20px; box-shadow:0 10px 20px rgba(0,0,0,0.4);">
+    </div>
+  </section>
+
+  <!-- ======== FOOTER ======== -->
+  <footer>
+    <p>© 2025 Digital Lakes | Designed for Egypt’s Digital Transformation</p>
+  </footer>
+
+  <!-- ======== SCRIPT ======== -->
+  <script>
+    // Fade-in animation
+    window.addEventListener("load", () => {
+      document.querySelector(".fade-in").classList.add("appear");
+    });
+
+    // Language toggle
+    const langBtn = document.getElementById("langBtn");
+    let isEnglish = true;
+    langBtn.onclick = () => {
+      isEnglish = !isEnglish;
+      if (isEnglish) {
+        langBtn.textContent = "AR";
+        document.querySelector("h2").textContent = "About Digital Lakes";
+        document.querySelectorAll("p")[0].textContent =
+          "The Digital Lakes project is part of Egypt's digital transformation strategy. It aims to monitor Egyptian lakes using smart sensors that collect environmental data such as water quality, temperature, and pollution levels in real time. This helps improve decision-making, protect marine life, and ensure sustainable water management.";
+        document.querySelectorAll("p")[1].textContent =
+          "By combining technology and sustainability, Digital Lakes represents a step toward a smarter, greener Egypt. The collected data will support scientists and decision-makers to keep our natural resources healthy for future generations.";
+      } else {
+        langBtn.textContent = "EN";
+        document.querySelector("h2").textContent = "عن مشروع البحيرات الرقمية";
+        document.querySelectorAll("p")[0].textContent =
+          "مشروع البحيرات الرقمية هو جزء من استراتيجية التحول الرقمي في مصر، ويهدف إلى مراقبة البحيرات المصرية باستخدام أجهزة استشعار ذكية تجمع بيانات بيئية مثل جودة المياه ودرجة الحرارة ومستوى التلوث في الوقت الفعلي. يساعد ذلك في تحسين اتخاذ القرار وحماية الحياة المائية وضمان الإدارة المستدامة للمياه.";
+        document.querySelectorAll("p")[1].textContent =
+          "من خلال الجمع بين التكنولوجيا والاستدامة، يمثل مشروع البحيرات الرقمية خطوة نحو مصر أكثر ذكاءً وخضرة، وتدعم البيانات المجمعة العلماء وصناع القرار للحفاظ على مواردنا الطبيعية للأجيال القادمة.";
+      }
+    };
+  </script>
+</body>
+</html>
